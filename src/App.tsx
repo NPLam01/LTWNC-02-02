@@ -1,5 +1,7 @@
+
 import Accordion from "./components/Accordion";
-import ProductList from "./ProductList";
+import ProductList from "./components/ProductList";
+import Cart from "./components/cart";
 
 function App() {
   return (
@@ -42,11 +44,16 @@ function App() {
 
       <hr />
 
-      <h2>2. usePagination</h2>
+      <h2>2. usePagination + Redux Toolkit</h2>
 
       <ProductList />
+
+      <hr />
+
+      <Cart />
     </div>
   );
 }
 
 export default App;
+
