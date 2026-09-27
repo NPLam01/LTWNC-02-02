@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import usePagination from "../hooks/usePagination";
-
+import { useFavoritesStore } from "../stores/favoritesStore";
 import {
     useAppDispatch,
     useAppSelector,
@@ -16,7 +16,13 @@ import {
 
 function ProductList() {
     const dispatch = useAppDispatch();
+    const toggleFavorite = useFavoritesStore(
+        (state) => state.toggleFavorite
+    );
 
+    const favorites = useFavoritesStore(
+        (state) => state.favorites
+    );
     
     const {
         products,
@@ -77,7 +83,6 @@ function ProductList() {
                     />
 
                     <br />
-
                     <button
                         onClick={() =>
                             dispatch(addToCart(product))
@@ -85,6 +90,16 @@ function ProductList() {
                     >
                         Thêm vào giỏ
                     </button>
+                    <button
+                        onClick={() => toggleFavorite(product)}
+                    >
+                        {favorites.some(
+                            (item) => item.id === product.id
+                        )
+                            ? "❤️ Bỏ yêu thích"
+                            : "🤍 Yêu thích"}
+                    </button>
+                    
                 </div>
             ))}
 

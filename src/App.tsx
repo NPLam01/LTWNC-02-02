@@ -2,7 +2,7 @@
 import Accordion from "./components/Accordion";
 import ProductList from "./components/ProductList";
 import Cart from "./components/cart";
-
+import Favorites from "./components/Favorites";
 function App() {
   return (
     <div>
@@ -51,6 +51,9 @@ function App() {
       <hr />
 
       <Cart />
+      <hr />
+
+      <Favorites />
     </div>
   );
 }
